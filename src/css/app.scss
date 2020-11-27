@@ -1,0 +1,16 @@
+// app global css in SCSS form
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,600,600i,700,800,800i,900&display=swap');
+
+@font-face
+font-family Montserrat {
+  src: url(https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,600,600i,700&display=swap);
+}
+
+// declare a class which applies it
+.montserrat {
+  font-family: 'Montserrat';
+}
+
+body {
+  font-family: 'Montserrat';
+}
