@@ -1,6 +1,6 @@
 <template>
   <div
-    class="primary"
+    style="background-color: #0C6599"
   >
 
     <div class="row q-pt-none">
@@ -32,13 +32,12 @@
     <div class="row q-pr-lg">
       <div class="col-8 q-pl-xl q-pr-lg">
         <q-card style="margin-top: -40px">
-          <q-card-section>
+          <q-card-section class="text-h5 q-ml-sm">
             Cadastro para acesso ao Portal
           </q-card-section>
           <q-card-section>
-
             <div class="row">
-              <div class="col-lg-3 col-md-6 col-sm-12 q-pr-sm">
+              <div class="col-lg-3 col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="CPF"
                   outlined
@@ -48,7 +47,7 @@
                 ></q-input>
               </div>
 
-              <div class="col-lg-9 col-md-6 col-sm-12 q-pl-sm">
+              <div class="col-lg-9 col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Nome"
                   outlined
@@ -57,10 +56,9 @@
                 ></q-input>
               </div>
             </div>
-            <br/>
 
             <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="col-lg-3 col-md-3 col-sm-12 q-pa-sm">
                 <q-input
                   label="CEP"
                   outlined
@@ -70,7 +68,7 @@
                 ></q-input>
               </div>
 
-              <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="col-lg-3 col-md-3 col-sm-12 q-pa-sm">
                 <q-input
                   label="Estado"
                   outlined
@@ -79,7 +77,7 @@
                 ></q-input>
               </div>
 
-              <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="col-lg-6 col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Cidade"
                   outlined
@@ -88,10 +86,9 @@
                 ></q-input>
               </div>
             </div>
-            <br/>
 
             <div class="row">
-              <div class="col-md-6 col-sm-12">
+              <div class="col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Bairro"
                   outlined
@@ -99,7 +96,7 @@
                   v-model="bairro"
                 ></q-input>
               </div>
-              <div class="col-md-6 col-sm-12">
+              <div class="col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Rua/Avenida"
                   outlined
@@ -108,10 +105,9 @@
                 ></q-input>
               </div>
             </div>
-            <br/>
 
             <div class="row">
-              <div class="col-md-3 col-sm-12">
+              <div class="col-md-3 col-sm-12 q-pa-sm">
                 <q-input
                   label="Número"
                   outlined
@@ -119,7 +115,7 @@
                   v-model="numero"
                 ></q-input>
               </div>
-              <div class="col-md-3 col-sm-12">
+              <div class="col-md-3 col-sm-12 q-pa-sm">
                 <q-input
                   label="Quadra"
                   outlined
@@ -127,7 +123,7 @@
                   v-model="quadra"
                 ></q-input>
               </div>
-              <div class="col-md-6 col-sm-12">
+              <div class="col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Lote"
                   outlined
@@ -136,10 +132,9 @@
                 ></q-input>
               </div>
             </div>
-            <br/>
 
             <div class="row">
-              <div class="col-md-12 col-sm-12">
+              <div class="col-md-12 col-sm-12 q-pa-sm">
                 <q-input
                   label="Complemento"
                   outlined
@@ -148,10 +143,9 @@
                 ></q-input>
               </div>
             </div>
-            <br/>
 
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="col-lg-6 col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Telefone"
                   outlined
@@ -159,7 +153,7 @@
                   v-model="telefone"
                 ></q-input>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="col-lg-6 col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Celular"
                   outlined
@@ -168,10 +162,9 @@
                 ></q-input>
               </div>
             </div>
-            <br/>
 
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="col-lg-6 col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="E-mail"
                   outlined
@@ -179,7 +172,7 @@
                   v-model="email"
                 ></q-input>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="col-lg-6 col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Confirmar E-mail"
                   outlined
@@ -188,10 +181,9 @@
                 ></q-input>
               </div>
             </div>
-            <br/>
 
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="col-lg-6 col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Senha"
                   outlined
@@ -199,7 +191,7 @@
                   v-model="senha"
                 ></q-input>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="col-lg-6 col-md-6 col-sm-12 q-pa-sm">
                 <q-input
                   label="Confirmar Senha"
                   outlined
@@ -208,20 +200,19 @@
                 ></q-input>
               </div>
             </div>
-            <br/>
 
-            <div class="row">
-              <div class="col-12" style="text-align: center">
+            <div class="row q-pt-md">
+              <div class="col-6 q-pa-sm" style="text-align: right">
                 <q-btn
-                  class="q-mr-md"
                   no-caps
                   color="primary"
                 >
                   Confirmar
                 </q-btn>
 
+              </div>
+              <div class="col-6 q-pa-sm" style="text-align: left">
                 <q-btn
-                  class="q-ml-md"
                   no-caps
                   color="red"
                 >
@@ -234,58 +225,51 @@
         </q-card>
       </div>
 
-      <div class="col-4 q-pl-lg q-pr-lg accent">
+      <div class="col-4 q-pa-lg " style="background-color: #074F7B">
         <q-img src="../../assets/nascente.jpg" style="width: 100%;"></q-img>
 
-        <q-card class="q-ml-md q-mr-md text-white" style="margin-top: -15px" color="#19AA75">
-          <q-card-section style="width: 100%" class="justify-center text-h5">
+        <q-card class="q-ml-md q-mr-md q-mb-lg text-white" style="margin-top: -20px; background-color: #19AA75">
+          <q-card-section style="width: 100%; text-align: center" class="text-h5">
             Conheça o formato de <br/>NASCENTE PROTEGIDA
           </q-card-section>
-          <q-card-section class="text-white">
+          <q-card-section class="text-white" style="text-align: justify">
             is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
             standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
             it to make a type specimen book. It has survived not only five centuries, but also the leap into
           </q-card-section>
         </q-card>
 
-        <q-card
-          align="center"
-          style="cursor: pointer"
-          class="q-mt-md col-12 text-accent text-weight-bold text-italic"
-          v-ripple
-          color="#1FCB42"
+        <q-btn
+          size="lg"
+          class="full-width text-italic text-accent text-weight-bold q-mb-lg"
+          style="background-color: #1FCB42"
         >
           SAIBA MAIS SOBRE O PROJETO
-        </q-card>
+        </q-btn>
 
-        <q-card
-          align="center"
-          style="cursor: pointer"
-          class="q-mt-md col-12 text-weight-bold text-italic"
-          v-ripple
-          color="#E99D45"
+        <q-btn
+          size="lg"
+          class="full-width text-italic text-weight-bold q-mb-lg"
+          style="background-color: #E99D45"
         >
-            <span class="text-accent">
-              DÚVIDAS?
-            </span>
-          <span class="text-white">
-              FALE CONOSCO
-            </span>
-        </q-card>
+          <span style="color: #074F7B">DÚVIDAS?</span> &nbsp;
+          <span style="color: #FFFFFF">FALE CONOSCO</span>
+        </q-btn>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'Cadastro'
-  }
+export default {
+  name: 'Cadastro'
+}
 </script>
 
 <style scoped>
-  .overlayTextoHeader {
-    bg-color: rgba(73, 154, 140, 0.7);
-  }
+
+.overlayTextoHeader {
+  background-color: rgba(51, 105, 30, 0.60);
+}
 
 </style>
