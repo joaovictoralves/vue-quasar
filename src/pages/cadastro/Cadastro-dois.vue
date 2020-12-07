@@ -269,7 +269,6 @@
 
 <script>
 export default {
-  layout: 'externo',
   name: 'Cadastro-dois'
 }
 </script>

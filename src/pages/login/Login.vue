@@ -1,69 +1,82 @@
 <template>
   <div
-    style="height: 100vh; background-color: #e1f5fe"
+    class="bg-primary"
   >
-    <div class="row" style="margin-left: 5%">
-      <div class="col-8" style="padding: 12%">
-        <div class="row q-pb-lg" align="center">
-          <div class="col-12 q-pb-lg">
-            <q-img src="../../assets/logo_azul.svg"
-                   style="height: 132px; width: 162px"
-            ></q-img>
-          </div>
-        </div>
 
-        <div class="row justify-center q-pt-md q-pb-sm">
-          <div class="col-8">
-            <q-input
-              label="Email"
-              outlined
-              bg-color="white"
-              :rules="[ val => val && val.length <12  || 'CPF inválido!']"
-              v-model="email"
-            ></q-input>
-          </div>
-        </div>
+    <!--    style="height: 100vh; -- informacao na div acima"-->
 
-        <div class="row justify-center">
-          <div class="col-8">
-            <q-input
-              label="Senha"
-              outlined
-              bg-color="white"
-              :type="'password'"
-              v-model="senha"
-            ></q-input>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 q-pa-lg">
+        <div class="q-pa-xl">
 
-        <div class="row q-pt-xl justify-center">
-          <div class="col-2"></div>
-          <div class="col-4">
-            <q-btn outline rounded no-caps color="primary" label="Esqueci minha senha"/>
+          <div class="row q-pb-lg" style="text-align: center">
+            <div class="col-12 q-pb-xl">
+              <q-img src="../../assets/logo.svg"
+                     style="height: 132px; width: 162px"
+              ></q-img>
+            </div>
           </div>
 
-          <div class="col-4" style="text-align: right">
-            <q-btn
-              rounded
-              color="primary"
-              to="/cadastro-dois"
-            >
-              Acessar
-            </q-btn>
-          </div>
+          <div class="row justify-center q-pt-md q-pb-sm">
+            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-xs-12">
 
-          <div class="col-2"></div>
-        </div>
+              <div class="row">
+                <div class="col-12">
+                  <q-input
+                    label="Email"
+                    outlined
+                    bg-color="white"
+                    :rules="[ val => val && val.length <12  || 'CPF inválido!']"
+                    v-model="email"
+                  ></q-input>
+                </div>
+              </div>
 
-        <div class="row q-pt-xl justify-center">
-          <div class="col-8" style="text-align: right">
-            <q-btn flat color="primary" no-caps>
-              Não possui acesso?
-              &nbsp;
-              <span class="text-weight-bold">
-                Cadastre-se aqui
-              </span>
-            </q-btn>
+              <div class="row">
+                <div class="col-12">
+                  <q-input
+                    label="Senha"
+                    outlined
+                    bg-color="white"
+                    :type="'password'"
+                    v-model="senha"
+                  ></q-input>
+                </div>
+              </div>
+
+              <div class="row q-pt-xl">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 q-pb-md">
+                  <q-btn outline rounded no-caps color="white"
+                         label="Esqueci minha senha"/>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+                     style="text-align: right"
+                >
+                  <q-btn
+                    rounded
+                    text-color="primary"
+                    color="white"
+                    to="/cadastro"
+                  >
+                    Acessar
+                  </q-btn>
+                </div>
+              </div>
+
+              <div class="row q-pt-xl">
+                <div class="col-12" style="text-align: right">
+                  <q-btn flat color="white" no-caps>
+                    Não possui acesso?
+                    &nbsp;
+                    <span class="text-weight-bold">
+                      Cadastre-se aqui
+                    </span>
+                  </q-btn>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -114,7 +127,7 @@
 
 <script>
   export default {
-    name: 'Login.vue'
+    name: 'Login-dois.vue'
   }
 </script>
 
