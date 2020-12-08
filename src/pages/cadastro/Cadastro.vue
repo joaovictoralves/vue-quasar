@@ -11,7 +11,6 @@
 
             <div class="row justify-center" style="width: 100vw">
               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12" align="center">
-                <!--                <q-img src="../../assets/logo.svg" style="height: 132px; width: 162px"></q-img>-->
                 <q-img src="../../assets/logo.svg" style="max-width: 162px"></q-img>
               </div>
 
@@ -323,9 +322,5 @@
     font-style: italic;
     color: #e1f5fe;
   }
-
-  /*$primary   : #0C6599;*/
-  /*$secondary : #3565a3;*/
-  /*$accent    : #074F7B;*/
 
 </style>
