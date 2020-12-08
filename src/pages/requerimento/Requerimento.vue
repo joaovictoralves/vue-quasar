@@ -5,7 +5,7 @@
 
     <div class="row">
       <div class="col-12">
-        <q-img src="../../assets/header.jpg" style="height: 400px">
+        <q-img src="../../assets/header.jpg" class="headerSize">
 
           <div class="absolute-full flex flex-center overlayTextoHeader">
             <div class="row justify-center" style="width: 100vw">
@@ -68,7 +68,6 @@
                   outlined
                   bg-color="#FBFEFF"
                   :rules="[ val => val && val.length > 0  || '']"
-                  v-model="cep"
                 ></q-input>
               </div>
 
@@ -77,7 +76,6 @@
                   label="Estado"
                   outlined
                   bg-color="#FBFEFF"
-                  v-model="estado"
                 ></q-input>
               </div>
 
@@ -86,7 +84,6 @@
                   label="Cidade"
                   outlined
                   bg-color="#FBFEFF"
-                  v-model="cidade"
                 ></q-input>
               </div>
             </div>
@@ -97,7 +94,6 @@
                   label="Bairro"
                   outlined
                   bg-color="#FBFEFF"
-                  v-model="bairro"
                 ></q-input>
               </div>
               <div class="col-md-6 col-sm-12 col-xs-12 q-pa-sm">
@@ -105,7 +101,6 @@
                   label="Logradouro"
                   outlined
                   bg-color="#FBFEFF"
-                  v-model="logradouro"
                 ></q-input>
               </div>
             </div>
@@ -127,7 +122,6 @@
                   label="Nome do Bairro"
                   outlined
                   bg-color="#FBFEFF"
-                  v-model="bairro"
                 ></q-input>
               </div>
               <div class="col-md-6 col-sm-12 col-xs-12 q-pa-sm">
@@ -135,7 +129,6 @@
                   label="Nome do Logradouro"
                   outlined
                   bg-color="#FBFEFF"
-                  v-model="logradouro"
                 ></q-input>
               </div>
             </div>
@@ -146,11 +139,13 @@
               Marcando as Nascentes
             </div>
           </q-card-section>
-
           <q-card-section>
-
+            <template>
+              <div>
+                <div id="map" style="height: 600px"></div>
+              </div>
+            </template>
           </q-card-section>
-
         </q-card>
       </div>
 
@@ -162,7 +157,16 @@
   export default {
     name: 'Requerimento',
 
+    mounted () {
+      this.initMap()
+    },
+
     data: () => ({
+      map: null,
+      mapCenter: {
+        lat: -16.6741051,
+        lng: -49.2384353,
+      },
       naoTemBairro: false,
       naoTemLogradouro: false
     }),
@@ -170,9 +174,26 @@
     computed: {
       smallSizeScreen () {
         return this.$q.screen.name === 'sm' || this.$q.screen.name === 'xs'
-      }
+      },
 
-    }
+    },
+
+    methods: {
+      initMap () {
+        this.map = new google.maps.Map(document.getElementById('map'), {
+          center: this.mapCenter,
+          zoom: 17,
+          maxZoom: 20,
+          minZoom: 3,
+          streetViewControl: true,
+          mapTypeControl: true,
+          fullscreenControl: true,
+          zoomControl: true,
+        })
+      },
+
+    },
+
   }
 </script>
 
@@ -183,7 +204,7 @@
   }
 
   .headerSize {
-    height: 400px;
+    height: 350px;
   }
 
   .fontTitleBiggerScreen {
