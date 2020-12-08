@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-primary"
+    class="bg-primary" style="height: 100vh;"
   >
     <div class="row justify-center">
       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 q-pa-lg">
@@ -77,7 +77,7 @@
         </div>
       </div>
 
-      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 bg-accent q-pa-xl">
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 bg-accent q-pa-xl" style="height: 100vh;">
 
         <div class="row q-pb-lg justify-center">
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-8 col-xs-12 bg-white">
@@ -100,7 +100,7 @@
         <div class="row justify-center">
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-8 col-xs-12">
             <q-btn
-              size="lg"
+              size="1.2rem"
               class="full-width text-italic text-accent text-weight-bold q-mb-lg"
               style="background-color: #1FCB42"
             >
@@ -108,7 +108,7 @@
             </q-btn>
 
             <q-btn
-              size="lg"
+              size="1.2rem"
               class="full-width text-italic text-weight-bold q-mb-lg"
               style="background-color: #E99D45"
             >
