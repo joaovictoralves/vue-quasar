@@ -136,15 +136,68 @@
 
           <q-card-section class="bg-grey-3 text-primary q-pa-xs" style="height: 30px">
             <div class="text-subtitle1 text-weight-bold text-center text-accent">
-              Marcando as Nascentes
+              Nascentes da Propriedade
             </div>
           </q-card-section>
           <q-card-section>
-            <template>
-              <div>
-                <div id="map" style="height: 600px"></div>
+            <div class="row">
+              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <template>
+                  <div id="map" style="height: 600px; width: 100%"></div>
+                </template>
               </div>
-            </template>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="row q-pl-md q-pr-md" v-for="(item, index) in nascentes">
+                  <q-separator color="black" v-if="index === 0"/>
+
+                  <div class="col-12 q-pa-sm">
+                    <div class="row q-pb-sm">
+                      <div class="col-12 text-subtitle1 text-weight-bold">
+                        Coordenadas da Nascente {{ item.id}}
+                      </div>
+                    </div>
+
+                    <div class="row q-pb-sm">
+                      <div class="col-6 text-primary text-weight-bold">
+                        Latitude:
+                      </div>
+                      <div class="col-6 text-right text-weight-medium">
+                        {{ item.lat}}
+                      </div>
+                    </div>
+
+                    <div class="row q-pb-sm">
+                      <div class="col-6 text-primary text-weight-bold">
+                        Longitude:
+                      </div>
+                      <div class="col-6 text-right text-weight-medium">
+                        {{ item.lng}}
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6">
+                      </div>
+                      <div class="col-6 text-right">
+                        <q-btn v-if="item.status !=='added'"
+                               @click="adicionarNascente(item)"
+                               rounded size="md" no-caps color="primary">
+                          Adicionar
+                        </q-btn>
+
+                        <q-btn v-if="item.status ==='added'"
+                               @click="removerNascente(item)"
+                               rounded size="md" no-caps color="red">
+                          Remover
+                        </q-btn>
+                      </div>
+                    </div>
+                  </div>
+
+                  <q-separator color="black"/>
+                </div>
+              </div>
+            </div>
           </q-card-section>
         </q-card>
       </div>
@@ -159,16 +212,51 @@
 
     mounted () {
       this.initMap()
+      this.carregarMarcadores()
     },
 
     data: () => ({
+      naoTemBairro: false,
+      naoTemLogradouro: false,
+
+      iconeNascente: 'https://cdn1.iconfinder.com/data/icons/prettyoffice9/48/triangle.png',
+      // iconeNascente: 'https://cdn0.iconfinder.com/data/icons/energy-free/32/Energy_Energy_Oil_Water_Drop_Fuel-48.png',
+      // iconeNascente: require('src/assets/pin-blue-48.png'),
       map: null,
+      markers: [],
+
       mapCenter: {
         lat: -16.6741051,
         lng: -49.2384353,
       },
-      naoTemBairro: false,
-      naoTemLogradouro: false
+
+      nascentes: [
+        {
+          id: 1,
+          lat: -16.67352326583447,
+          lng: -49.23972948244527,
+          status: 'removed',
+        },
+        {
+          id: 2,
+          lat: -16.675725294274457,
+          lng: -49.23896325281083,
+          status: 'removed',
+        },
+        {
+          id: 3,
+          lat: -16.673511088828143,
+          lng: -49.23793497288788,
+          status: 'removed',
+        },
+        {
+          id: 4,
+          lat: -16.67484719095644,
+          lng: -49.23688354703943,
+          status: 'removed',
+        },
+      ]
+
     }),
 
     computed: {
@@ -180,15 +268,73 @@
 
     methods: {
       initMap () {
-        this.map = new google.maps.Map(document.getElementById('map'), {
+        let mapOptions = {
+          // roadmap, satellite, hybrid, terrain
+          mapTypeId: 'satellite',
+
+          // mapTypeControl: true,
+          // mapTypeControlOptions: {
+          //   style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+          //   mapTypeIds: ['satellite', 'hybrid'],
+          // },
+
           center: this.mapCenter,
           zoom: 17,
-          maxZoom: 20,
-          minZoom: 3,
-          streetViewControl: true,
-          mapTypeControl: true,
-          fullscreenControl: true,
-          zoomControl: true,
+          // maxZoom: 20,
+          // minZoom: 3,
+          // streetViewControl: true,
+          // fullscreenControl: true,
+          // zoomControl: true,
+        }
+
+        this.map = new google.maps.Map(document.getElementById('map'), mapOptions)
+      },
+
+      setMarker (point, label) {
+        const marker = new google.maps.Marker({
+          position: point,
+          map: this.map,
+          icon: null,
+          label: {
+            text: label,
+            color: '#FFFFFF',
+            fontWeight: 'bold'
+          }
+        })
+
+        this.markers.push(marker)
+      },
+
+      async carregarMarcadores () {
+        await this.nascentes.forEach(item => {
+          this.setMarker({
+            lat: item.lat,
+            lng: item.lng,
+          }, item.id.toString())
+        })
+      },
+
+      async removerNascente (item) {
+        item.status = 'removed'
+
+        await this.markers.forEach(val => {
+          console.log(val)
+
+          if (val && val.label && val.label.text == item.id) {
+            val.setIcon(null)
+            // val.setMap(null)
+          }
+        })
+      },
+
+      async adicionarNascente (item) {
+        item.status = 'added'
+
+        await this.markers.forEach(val => {
+          if (val && val.label && val.label.text == item.id) {
+            val.setIcon(this.iconeNascente)
+            // val.setMap(this.map)
+          }
         })
       },
 
