@@ -1,7 +1,8 @@
 <template>
   <div
-    class="white"
+    class="bg-primary"
   >
+
     <div class="row q-pt-none">
       <div class="col-12 q-pa-none">
         <q-img src="../../assets/header.jpg" style="height: 400px">
@@ -29,8 +30,8 @@
     </div>
 
     <div class="row q-pr-lg">
-      <div class="col-8 q-pa-xl">
-        <q-card flat style=" background-color: transparent">
+      <div class="col-8 q-pl-xl q-pr-lg">
+        <q-card style="margin-top: -40px">
           <q-card-section class="text-h5 q-ml-sm">
             Cadastro para acesso ao Portal
           </q-card-section>
@@ -219,49 +220,41 @@
                 </q-btn>
               </div>
             </div>
+
           </q-card-section>
         </q-card>
       </div>
 
-      <div class="col-4" align="center">
-        <q-img src="../../assets/nascente.jpg" style="width: 100%; margin-top: -50px"></q-img>
+      <div class="col-4 q-pa-lg " style="background-color: #074F7B">
+        <q-img src="../../assets/nascente.jpg" style="width: 100%;"></q-img>
 
-        <q-img src="../../assets/header.jpg" style="height: 550px">
-          <div class="absolute-full flex flex-center overlayTextoNascente">
+        <q-card class="q-ml-md q-mr-md q-mb-lg text-white" style="margin-top: -20px; background-color: #19AA75">
+          <q-card-section style="width: 100%; text-align: center" class="text-h5">
+            Conheça o formato de <br/>NASCENTE PROTEGIDA
+          </q-card-section>
+          <q-card-section class="text-white" style="text-align: justify">
+            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+            it to make a type specimen book. It has survived not only five centuries, but also the leap into
+          </q-card-section>
+        </q-card>
 
-            <div class="row">
-              <div class="col-12">
-                <q-card flat class="q-mb-xl mdi-format-vertical-align-top" style="background-color: transparent">
-                  <q-card-section class="justify-center text-h5">
-                    Conheça o formato de <br/>NASCENTE PROTEGIDA
-                  </q-card-section>
-                  <q-card-section class="text-subtitle1 text-justify">
-                    is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                    scrambled
-                    it to make a type specimen book. It has survived not only five centuries, but also the leap into
-                  </q-card-section>
-                </q-card>
+        <q-btn
+          size="lg"
+          class="full-width text-italic text-accent text-weight-bold q-mb-lg"
+          style="background-color: #1FCB42"
+        >
+          SAIBA MAIS SOBRE O PROJETO
+        </q-btn>
 
-                <q-btn
-                  size="lg"
-                  class="full-width text-italic text-accent text-weight-bold q-mb-lg"
-                  style="background-color: #1FCB42"
-                >
-                  SAIBA MAIS SOBRE O PROJETO
-                </q-btn>
-
-                <q-btn
-                  size="lg"
-                  class="full-width text-italic text-weight-bold"
-                  style="background-color: #E99D45"
-                >
-                  <span style="color: #074F7B">DÚVIDAS?</span> &nbsp; FALE CONOSCO
-                </q-btn>
-              </div>
-            </div>
-          </div>
-        </q-img>
+        <q-btn
+          size="lg"
+          class="full-width text-italic text-weight-bold q-mb-lg"
+          style="background-color: #E99D45"
+        >
+          <span style="color: #074F7B">DÚVIDAS?</span> &nbsp;
+          <span style="color: #FFFFFF">FALE CONOSCO</span>
+        </q-btn>
       </div>
     </div>
   </div>
@@ -269,17 +262,14 @@
 
 <script>
 export default {
-  name: 'Cadastro-dois'
+  name: 'Cadastro'
 }
 </script>
 
 <style scoped>
+
 .overlayTextoHeader {
   background-color: rgba(51, 105, 30, 0.60);
-}
-
-.overlayTextoNascente {
-  background-color: rgba(12, 101, 153, 0.70);
 }
 
 </style>

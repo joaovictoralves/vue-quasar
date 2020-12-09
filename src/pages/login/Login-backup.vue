@@ -1,7 +1,10 @@
 <template>
   <div
-    class="bg-primary" style="height: 100vh;"
+    class="bg-primary"
   >
+
+    <!--    style="height: 100vh; -- informacao na div acima"-->
+
     <div class="row justify-center">
       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 q-pa-lg">
         <div class="q-pa-lg">
@@ -77,47 +80,60 @@
         </div>
       </div>
 
-      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 bg-accent q-pa-xl" style="height: 100vh;">
-
-        <div class="row q-pb-lg justify-center">
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-8 col-xs-12 bg-white">
-            <q-img src="../../assets/nascente.jpg" style="width: 100%;"></q-img>
-
-            <q-card class="q-ma-md text-white" style="margin-top: -20px; background-color: #19AA75">
-              <q-card-section style="width: 100%; text-align: center" class="text-h5">
-                Conheça o formato de <br/>NASCENTE PROTEGIDA
-              </q-card-section>
-
-              <q-card-section class="text-white" style="text-align: justify">
-                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                it to make a type specimen book. It has survived not only five centuries, but also the leap into
-              </q-card-section>
-            </q-card>
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 q-pt-lg" align="center">
+        <div class="row">
+          <div class="col-12">
+            <!--            <q-img src="../../assets/nascente.jpg" style="height: 315px; width: 448px"></q-img>-->
+            <q-img src="../../assets/nascente.jpg" style="height: auto; max-width: 448px; min-width: 360px;"></q-img>
           </div>
         </div>
 
-        <div class="row justify-center">
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-8 col-xs-12">
-            <q-btn
-              size="1.2rem"
-              class="full-width text-italic text-accent text-weight-bold q-mb-lg"
-              style="background-color: #1FCB42"
-            >
-              SAIBA MAIS SOBRE O PROJETO
-            </q-btn>
+        <div class="row q-pb-lg">
+          <div class="col-12">
+            <!--            <q-img src="../../assets/header.jpg"-->
+            <!--                   style="height: calc(100vh - 315px); max-width: 448px; min-width: 360px;">-->
+            <q-img src="../../assets/header.jpg"
+                   style="height: 100vh ; max-width: 448px; min-width: 360px;">
 
-            <q-btn
-              size="1.2rem"
-              class="full-width text-italic text-weight-bold q-mb-lg"
-              style="background-color: #E99D45"
-            >
-              <span style="color: #074F7B">DÚVIDAS?</span> &nbsp;
-              <span style="color: #FFFFFF">FALE CONOSCO</span>
-            </q-btn>
+              <div class="absolute-full flex flex-center overlayTextoNascente">
+
+                <div class="row">
+                  <div class="col-12">
+                    <q-card flat class="q-mb-xl" style="background-color: transparent">
+                      <q-card-section class="justify-center text-h5">
+                        Conheça o formato de <br/>NASCENTE PROTEGIDA
+                      </q-card-section>
+                      <q-card-section class="text-subtitle1 text-justify">
+                        is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                        industry's
+                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                        scrambled
+                        it to make a type specimen book. It has survived not only five centuries, but also the leap
+                        into
+                      </q-card-section>
+                    </q-card>
+
+                    <q-btn
+                      size="lg"
+                      class="full-width text-italic text-accent text-weight-bold q-mb-lg"
+                      style="background-color: #1FCB42"
+                    >
+                      SAIBA MAIS SOBRE O PROJETO
+                    </q-btn>
+
+                    <q-btn
+                      size="lg"
+                      class="full-width text-italic text-weight-bold"
+                      style="background-color: #E99D45"
+                    >
+                      <span style="color: #074F7B">DÚVIDAS?</span> &nbsp; FALE CONOSCO
+                    </q-btn>
+                  </div>
+                </div>
+              </div>
+            </q-img>
           </div>
         </div>
-
       </div>
     </div>
   </div>
