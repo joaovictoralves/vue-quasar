@@ -280,13 +280,12 @@
 
 <script>
   export default {
-    name: 'Cadastro',
+    name: 'Cadastro.vue',
 
     computed: {
       smallSizeScreen () {
         return this.$q.screen.name === 'sm' || this.$q.screen.name === 'xs'
       }
-
     }
   }
 </script>

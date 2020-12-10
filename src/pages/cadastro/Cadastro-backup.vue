@@ -262,7 +262,7 @@
 
 <script>
 export default {
-  name: 'Cadastro'
+  name: 'Cadastro-backup.vue'
 }
 </script>
 

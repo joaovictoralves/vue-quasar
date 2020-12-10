@@ -269,7 +269,7 @@
 
 <script>
 export default {
-  name: 'Cadastro-dois'
+  name: 'Cadastro-dois.vue'
 }
 </script>
 

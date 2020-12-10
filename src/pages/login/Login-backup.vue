@@ -141,7 +141,7 @@
 
 <script>
   export default {
-    name: 'Login-dois.vue'
+    name: 'Login-backup.vue'
   }
 </script>
 

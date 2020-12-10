@@ -4,77 +4,94 @@
   >
     <div class="row justify-center">
       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 q-pa-lg">
-        <div class="q-pa-lg">
-          <div class="row q-pb-lg" style="text-align: center">
-            <div class="col-12 q-pb-xl">
-              <q-img src="../../assets/logo.svg"
-                     style="height: 132px; width: 162px"
-              ></q-img>
-            </div>
-          </div>
-
-          <div class="row justify-center q-pt-md q-pb-sm">
-            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-xs-12">
-              <div class="row">
-                <div class="col-12">
-                  <q-input
-                    label="Email"
-                    outlined
-                    bg-color="white"
-                    :rules="[ val => val && val.length <12  || 'CPF inválido!']"
-                    v-model="email"
-                  ></q-input>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-12">
-                  <q-input
-                    label="Senha"
-                    outlined
-                    bg-color="white"
-                    :type="'password'"
-                    v-model="senha"
-                  ></q-input>
-                </div>
-              </div>
-
-              <div class="row q-pt-xl">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 q-pb-md">
-                  <q-btn outline rounded no-caps color="white"
-                         label="Esqueci minha senha"/>
-                </div>
-
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
-                     style="text-align: right"
-                >
-                  <q-btn
-                    rounded
-                    text-color="primary"
-                    color="white"
-                    to="/cadastro"
-                  >
-                    Acessar
-                  </q-btn>
-                </div>
-              </div>
-
-              <div class="row q-pt-xl">
-                <div class="col-12" style="text-align: right">
-                  <!--                <div class="col">-->
-                  <q-btn flat color="white" no-caps>
-                    Não possui acesso?
-                    &nbsp;
-                    <span class="text-weight-bold">
-                      Cadastre-se aqui
-                    </span>
-                  </q-btn>
-                </div>
-              </div>
-
-            </div>
+        <div class="row q-pa-lg">
+        </div>
+        <div class="row q-pa-lg">
+        </div>
+        <div class="row q-pb-lg" style="text-align: center">
+          <div class="col-12 q-pb-xl">
+            <q-img src="../../assets/logo.svg"
+                   style="height: 132px; width: 162px"
+            ></q-img>
           </div>
         </div>
+
+        <div class="row justify-center q-pt-md q-pb-sm">
+          <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-xs-12">
+            <div class="row">
+              <div class="col-12">
+                <q-input
+                  ref="cpf"
+                  label="CPF"
+                  outlined
+                  bg-color="white"
+                  lazy-rules
+                  :rules="[ val => val && val.length > 0 || '']"
+                  v-model="cpf"
+                  mask="###.###.###-##"
+                >
+                  <template v-slot:error>
+                    <div class="text-white">É necessário informar um CPF válido!</div>
+                  </template>
+                </q-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <q-input
+                  ref="senha"
+                  label="Senha"
+                  outlined
+                  bg-color="white"
+                  lazy-rules
+                  :rules="[ val => val && val.length > 0 || '']"
+                  :type="'password'"
+                  v-model="senha"
+                >
+                  <template v-slot:error>
+                    <div class="text-white">É necessário informar uma senha válida!</div>
+                  </template>
+                </q-input>
+              </div>
+            </div>
+
+            <div class="row q-pt-xl">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 q-pb-md">
+                <q-btn outline rounded no-caps color="white"
+                       label="Esqueci minha senha"/>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+                   style="text-align: right"
+              >
+                <q-btn
+                  rounded
+                  text-color="primary"
+                  color="white"
+                  @click="logar"
+                >
+                  Acessar
+                </q-btn>
+              </div>
+            </div>
+
+            <div class="row q-pt-xl">
+              <div class="col-12" style="text-align: right">
+                <!--                <div class="col">-->
+                <q-btn flat color="white" no-caps to="/cadastro">
+                  Não possui acesso?
+                  &nbsp;
+                  <span class="text-weight-bold">
+                      Cadastre-se aqui
+                    </span>
+                </q-btn>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 bg-accent q-pa-xl" style="height: 100vh;">
@@ -125,7 +142,64 @@
 
 <script>
   export default {
-    name: 'Login-dois.vue'
+    name: 'Login.vue',
+
+    created () {
+
+    },
+
+    data: () => ({
+      cpf: null,
+      senha: null,
+
+    }),
+
+    computed: {},
+
+    methods: {
+      async logar () {
+        this.$refs.cpf.validate()
+        this.$refs.senha.validate()
+
+        if (this.$refs.cpf.hasError || this.$refs.senha.hasError) {
+          return
+        }
+
+        this.$q.loading.show({ message: 'Verificando dados...' })
+
+        try {
+          let senhaSha = await getSHA(this.senha)
+
+          let dadosLogin = {
+            cpf: this.cpf.replace('-', '').replace('.', '').replace('.', ''),
+            senha: senhaSha
+          }
+
+          let token = await this.$store.dispatch('auth/login', dadosLogin)
+
+          if (token) {
+            localStorage.setItem('cpf', this.cpf)
+
+            let dadosConsultaConta = {
+              cpfCnpj: this.cpf,
+              tipoCliente: 'F'
+            }
+
+            await this.$store.dispatch('contasUsuario/listarContasUsuario', dadosConsultaConta)
+            await this.getDadosUsuario()
+
+            await this.$store.commit('contasUsuario/setCpfCnpj', this.cpf)
+            await this.$store.commit('contasUsuario/setTipoCliente', 'F')
+
+            this.$q.loading.hide()
+            await this.$router.push({ path: '/home' })
+          }
+        } catch (error) {
+          await this.handleException(error)
+        }
+      },
+
+    },
   }
 </script>
 
