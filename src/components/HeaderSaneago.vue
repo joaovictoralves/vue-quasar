@@ -1,14 +1,14 @@
 <template>
   <div class="row">
     <div class="col-12">
-      <q-img src="../assets/header.jpg" class="headerSize">
+      <q-img src="../assets/header.jpg"
+             v-bind:class="{headerSize: !bigHeader, headerBigSize : bigHeader}">
 
         <div class="absolute-full flex flex-center overlayTextoHeader">
           <div class="row justify-center" style="width: 100vw">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12" align="center">
-              <q-img src="../assets/logo.svg" style="max-width: 162px"></q-img>
+              <q-img src="../assets/logo.svg" style="max-width: 162px" v-if="showLogo"></q-img>
             </div>
-
             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 q-pt-lg q-pr-md" align="end">
                 <span v-bind:class="{fontTitleSmallScreen: smallSizeScreen, fontTitleBiggerScreen : !smallSizeScreen}">
                   Projeto de Recuperação das Nascentes
@@ -30,7 +30,16 @@
 <script>
   export default {
     name: 'HeaderSaneago',
-    props: {},
+    props: {
+      showLogo: {
+        type: Boolean,
+        default: false,
+      },
+      bigHeader: {
+        type: Boolean,
+        default: false,
+      },
+    },
     created () {
     },
     data () {
@@ -41,7 +50,6 @@
         return this.$q.screen.name === 'sm' || this.$q.screen.name === 'xs'
       }
     },
-    methods: {}
   }
 </script>
 
@@ -51,6 +59,10 @@
   }
 
   .headerSize {
+    height: 260px;
+  }
+
+  .headerBigSize {
     height: 350px;
   }
 
